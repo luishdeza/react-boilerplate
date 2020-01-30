@@ -58,7 +58,6 @@ class IndecisionApp extends React.Component {
   }
 
   handleAddOption(option) {
-    console.log(testting)
     if(!option) {
       return 'Enter a valid option'
     } else if (this.state.options.indexOf(option) > -1) {
