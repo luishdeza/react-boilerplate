@@ -4,12 +4,14 @@ import Header from './Header';
 import Action from './Action';
 import Options from './Options';
 import AddOptionForm from './AddOptionForm';
+import OptionModal from './OptionModal';
 
 class IndecisionApp extends React.Component {
   state = {
     title: "Indecision",
     subtitle: "Put your life in the hands of a computer",
-    options: []
+    options: [],
+    selectedOption: ""
   }
 
   // constructor(props) {
@@ -29,7 +31,9 @@ class IndecisionApp extends React.Component {
   handlePick = () => {
     const rndNumber = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[rndNumber]
-    alert(option)
+    this.setState(() => ({ 
+      selectedOption: option 
+    }))
   }
 
   handleAddOption = (option) => {
@@ -53,6 +57,12 @@ class IndecisionApp extends React.Component {
   handleDeleteOptionSingular = (optionToRemove) => {
     this.setState((prevState) => ({
       options: prevState.options.filter((value) => value != optionToRemove)
+    }))
+  }
+
+  handleClearSelectedOption = () => {
+    this.setState(() => ({
+      selectedOption: ""
     }))
   }
 
@@ -95,6 +105,10 @@ class IndecisionApp extends React.Component {
         />
         <AddOptionForm 
           handleAddOption={this.handleAddOption}
+        />
+        <OptionModal 
+          selectedOption={this.state.selectedOption}
+          handleClearSelectedOption={this.handleClearSelectedOption}
         />
       </div>
     )
