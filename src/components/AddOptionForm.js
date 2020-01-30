@@ -1,17 +1,24 @@
 import React from 'react';
 
 class AddOptionForm extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.handleSubmit = this.handleSubmit.bind(this)
 
-    this.state = {
-      error: false
-    }
+  // Property transform
+  state = {
+    error: false
   }
 
-  handleSubmit(e) {
+  // constructor(props) {
+  //   super(props);
+    
+  //   this.handleSubmit = this.handleSubmit.bind(this)
+
+  //   this.state = {
+  //     error: false
+  //   }
+  // }
+
+  // handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     const newOption = e.target.elements.option.value.trim();
