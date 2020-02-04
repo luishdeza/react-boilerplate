@@ -1,0 +1,17 @@
+html {
+  font-size: 62.5%; // Set rem to base 10. 2.2rem = 22px
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size; // => 16px
+  background-color: $dark-blue;
+}
+
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
